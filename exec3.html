@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        .completed { text-decoration: line-through; color: red; }
+    </style>
+</head>
+<body>
+
+    <h1>Lista de Tarefas</h1>
+
+    <input type="text" id="taskInput" placeholder="Digite uma tarefa">
+    <button onclick="addTask()">Adicionar</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        function addTask() {
+            const task = document.getElementById('taskInput').value;
+            if (task) {
+                const li = document.createElement('li');
+                li.innerHTML = `<input type="checkbox" onclick="this.nextSibling.classList.toggle('completed')"> ${task}`;
+                document.getElementById('taskList').appendChild(li);
+                document.getElementById('taskInput').value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>
