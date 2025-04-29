@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
     <style>
-        .completed { text-decoration: line-through; color: red; }
+        .completed {
+            text-decoration: line-through; /* Risco no texto */
+            color: red;                    /* Texto ficará vermelho */
+        }
     </style>
 </head>
+
 <body>
 
     <h1>Lista de Tarefas</h1>
@@ -22,12 +27,13 @@
             const task = document.getElementById('taskInput').value;
             if (task) {
                 const li = document.createElement('li');
-                li.innerHTML = `<input type="checkbox" onclick="this.nextSibling.classList.toggle('completed')"> ${task}`;
+                li.innerHTML = `<input type="checkbox" onclick="this.parentElement.classList.toggle('completed')"> ${task}`;
                 document.getElementById('taskList').appendChild(li);
-                document.getElementById('taskInput').value = '';
+                document.getElementById('taskInput').value = '';  // Limpa o campo de entrada
             }
         }
     </script>
 
 </body>
+
 </html>
